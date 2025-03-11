@@ -1,0 +1,36 @@
+<!-- Nav Bar -->
+<nav class="top-0 z-[10] sticky bg-white shadow-md px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6">
+  <!-- Flex Box -->
+  <div class="flex justify-between items-center">
+    <a href="/" class="md:hidden"><img class="w-10" src="/Images/logo.png" alt="Fortune Holders logo" /></a>
+    <!-- Logo -->
+    <div class="hidden md:flex items-center md:gap-x-5 lg:gap-x-8 xl:gap-[2.5rem] 2xl:gap-[3rem] bg-[#F0F0F0] mx-auto p-2 rounded-3xl">
+      <a href="/"><img class="w-12" src="/Images/logo.png" alt="Fortune Holders logo" /></a>
+      <!-- Menu Items -->
+      <a href="/about" class="font-medium text-black hover:underline focus:underline duration-500">About us</a>
+      <a href="/faq" class="font-medium text-black hover:underline focus:underline duration-500">FAQs</a>
+      <a href="/services" class="font-medium text-black hover:underline focus:underline duration-500">Services</a>
+      <a href="/contact" class="font-medium text-black hover:underline focus:underline duration-500">Contact us</a>
+      <a href="/login" class="hover:bg-primaryGreen px-10 py-3 border border-primaryGreen rounded-xl font-semibold text-primaryGreen hover:text-white duration-500">Log in</a>
+      <a href="/create" class="bg-primaryGreen px-10 py-3 rounded-xl font-semibold text-white hover:translate-x-2 duration-500">Sign up </a>
+    </div>
+    <!-- Hamburger Icon -->
+    <button id="menu-btn" class="md:hidden block bg-[#F0F0F0] hamburger">
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-down"></span>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="md:hidden">
+    <div id="menu" class="hidden right-6 left-6 z-50 absolute flex-col items-center self-end sm:self-center space-y-6 bg-white mt-14 py-8 border border-lightBlack/10 rounded-2xl sm:w-auto text-sm">
+      <a class="font-medium text-black hover:underline focus:underline duration-500" href="/about">About us</a>
+      <a class="font-medium text-black hover:underline focus:underline duration-500" href="/faq">FAQs</a>
+      <a class="font-medium text-black hover:underline focus:underline duration-500" href="/services">Services</a>
+      <a class="font-medium text-black hover:underline focus:underline duration-500" href="/contact">Contact us</a>
+      <a class="font-medium text-black hover:underline focus:underline duration-500" href="/legal" target="_blank">Legal</a>
+      <a href="/login" class="hover:bg-primaryGreen px-10 py-3 border border-primaryGreen rounded-2xl font-semibold text-primaryGreen hover:text-white duration-500">Log in</a>
+      <a href="/create" class="bg-primaryGreen px-10 py-3 rounded-2xl font-semibold text-white hover:translate-x-2 duration-500">Sign up</a>
+    </div>
+  </div>
+</nav>

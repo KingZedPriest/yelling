@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fortune Holders</title>
+  <%- include("partials/_seo"); -%>
+  <script defer src="../JS/index.js"></script>
+</head>
+
+<body class="text-deepBlack text-xs md:text-sm xl:text-base">
+  <%- include('partials/_alert') %>
+  <%- include("partials/_nav"); -%>
+
+  <section id="heroSection">
+    <div class="relative mx-auto px-4 pt-[2rem] lg:w-[90%] xl:w-[80%] 2xl:w-[70%]">
+      <video src="/Images/heroVid.mp4" autoplay loop muted class="mx-auto rounded-xl md:rounded-2xl xl:rounded-3xl w-full"></video>
+      <div class="bottom-0 absolute place-content-center grid bg-[#FFF] p-2 rounded-tr-2xl w-40 md:w-48 xl:w-60 h-12 md:h-16 xl:h-20">
+        <a href="/create" class="bg-primaryGreen hover:bg-inherit px-4 md:px-8 xl:px-12 py-3 border border-primaryGreen rounded-xl font-semibold text-white hover:text-primaryGreen duration-500">GET STARTED</a>
+      </div>
+    </div>
+  </section>
+  <section id="join">
+    <div class="flex md:flex-row flex-col md:justify-between gap-y-5 mx-auto px-4 py-[2rem] lg:w-[90%] xl:w-[80%] 2xl:w-[70%] md:text-left text-center">
+      <h1 class="md:w-[45%] xl:w-[48%] font-bold text-gray-600 text-lg md:text-xl lg:text-2xl xl:text-3xl leading-[1.2]"> Join <span class="text-primaryGreen">Fortune Holders Associate®</span> , the world&apos;s largest and most successful <span class="text-primaryGreen">networking organization.</span></h1>
+      <p class="md:w-[50%] font-medium text-sm md:text-base xl:text-lg">Discover how Fortune Holders's Members around the world network with each other, while making billions of dollars in revenue for businesses just like yours.</p>
+    </div>
+  </section>
+  <section id="aboutUs">
+    <div class="flex md:flex-row flex-col md:justify-between md:items-center gap-y-5 mx-auto px-4 py-[2rem] lg:w-[90%] xl:w-[80%] 2xl:w-[70%]">
+      <div class="relative w-full md:w-[45%] xl:w-[48%] cursor-pointer" onclick="playVideo()">
+        <div id="playButton" class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-40 rounded-3xl">
+          <div class="flex justify-center items-center bg-white bg-opacity-80 shadow-lg rounded-full w-16 h-16">
+            <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M6 4l10 6-10 6V4z"></path>
+            </svg>
+          </div>
+        </div>
+        <video id="videoPlayer" src="/Images/secondVid.mp4" controls class="rounded-3xl w-full h-full">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="relative flex flex-col shadow-md rounded-3xl md:w-[45%] xl:w-[48%] text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center">
+        <div class="flex">
+          <div class="pt-10 w-80 h-44 lg:h-52">
+            <h1 class="font-bold text-primaryGreen text-center tracking-tighter">335k+</h1>
+            <p class="font-medium text-xs md:text-sm xl:text-base">Global Members</p>
+          </div>
+          <div class="bg-[#F0F0F0] pt-10 rounded-tr-3xl w-80 h-44 lg:h-52">
+            <h1 class="font-bold text-primaryGreen text-center tracking-tighter">11,200+</h1>
+            <p class="font-medium text-xs md:text-sm xl:text-base">Global Chapters</p>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="bg-[#F0F0F0] pt-20 rounded-bl-3xl w-80 h-44 lg:h-52">
+            <h1 class="font-bold text-primaryGreen text-center tracking-tighter">76</h1>
+            <p class="font-medium text-xs md:text-sm xl:text-base">Countries</p>
+          </div>
+          <div class="pt-20 w-80 h-44 lg:h-52">
+            <h1 class="font-bold text-primaryGreen text-center tracking-tighter">16.6M</h1>
+            <p class="font-medium text-xs md:text-sm xl:text-base">Member Referrals</p>
+            <p class="font-medium text-[10px] text-gray-500 md:text-xs xl:text-sm">Last 12 Months*</p>
+          </div>
+        </div>
+        <div class="top-1/2 left-1/2 absolute bg-white shadow p-2 md:p-4 xl:p-6 rounded-2xl -translate-x-1/2 -translate-y-1/2 transform">
+          <h1 class="font-bold text-primaryGreen text-center tracking-tighter"><sup>$</sup>25.3B</h1>
+          <h3 class="font-bold text-sm md:text-base xl:text-lg">Revenue Generated</h3>
+          <h3 class="-mt-2 font-bold text-sm md:text-base xl:text-lg">for Members</h3>
+          <p class="-mt-1 font-medium text-[10px] text-gray-500 md:text-xs xl:text-sm">Last 12 Months*</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="why" class="p-4">
+    <div class="flex md:flex-row flex-col md:justify-between md:items-center gap-y-5 bg-[#F0F0F0] mx-auto my-10 xl:p-8 px-4 md:px-6 py-[2rem] rounded-3xl lg:w-[90%] xl:w-[80%] 2xl:w-[70%] md:text-left text-center">
+      <h1 class="md:w-[70%] font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl leading-[1.2]"><span class="text-primaryGreen">See why 335K+</span> entrepreneurs like you chose Fortune Holders to grow their business</h1>
+      <a href="/create" class="block bg-primaryGreen hover:bg-inherit mx-auto md:mx-0 px-8 md:px-6 xl:px-8 py-3 border border-primaryGreen rounded-xl w-fit font-semibold text-white hover:text-primaryGreen duration-500">GET STARTED</a>
+    </div>
+  </section>
+  <section id="beyond networking">
+    <div class="bg-darkGreen py-[2rem] sm:py-[3rem] md:py-[4rem] lg:py-[6rem] xl:py-[8rem] text-white">
+      <div class="flex lg:flex-row flex-col lg:justify-between gap-y-5 mx-auto p-4 lg:w-[90%] xl:w-[80%] 2xl:w-[70%]">
+        <div class="flex flex-col gap-y-3 lg:w-[45%] xl:w-[48%]">
+          <p class="font-bold text-sm md:text-base xl:text-lg">Beyond Networking</p>
+          <h1 class="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">Build Your Professional Network</h1>
+          <p class="font-medium text-sm md:text-base xl:text-lg">Build a trusted network of like-minded professionals who not only care about your success but are eager to help you achieve it.  <br> <span class="font-bold">Scale Up</span>
+          </p>
+          <h1 class="mt-10 font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">Grow Your Business Exponentially</h1>
+          <p class="font-medium text-sm md:text-base xl:text-lg">Our global presence together with a proven networking system results in unmatched business opportunities. Exchange qualified referrals and watch your business grow. </p>
+        </div>
+        <div class="flex flex-col gap-y-10 mt-10 lg:mt-0 lg:w-[45%] xl:w-[48%]">
+          <main class="flex gap-x-5 bg-white backdrop-invert backdrop-opacity-10 p-2 md:p-4 xl:p-8 rounded-3xl w-full">
+            <img src="/Images/testimonial 2.png" alt="Fortune Holders Image" class="border-2 border-white rounded-[50%] size-16 md:size-20 xl:size-28">
+            <div class="flex flex-col gap-y-5 text-deepBlack">
+              <p class="font-medium">Fortune Holders Associate has been a game-changer, expanding my network with like-minded professionals.</p>
+              <div>
+                <p class="font-semibold text-primaryGreen">Crystal Garcia</p>
+                <p class="text-[10px] md:text-xs xl:text-sm">Business Development, USA</p>
+              </div>
+            </div>
+          </main>
+          <main class="flex gap-x-5 bg-white backdrop-invert backdrop-opacity-10 p-2 md:p-4 xl:p-8 rounded-3xl w-full">
+            <img src="/Images/testimonial 1.png" alt="Fortune Holders Image" class="border-2 border-white rounded-[50%] size-16 md:size-20 xl:size-28">
+            <div class="flex flex-col gap-y-5 text-deepBlack">
+              <p class="font-medium">I&apos;ve achieved a great ROI with $736,000 in referrals and $110,000 in return.</p>
+              <div>
+                <p class="font-semibold text-primaryGreen">Paul Tommey</p>
+                <p class="text-[10px] md:text-xs xl:text-sm">Realtor-Property Manager | USA</p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="steps-to-success" class="relative bg-cover bg-no-repeat bg-center" style="background-image: url('/Images/map.png');">
+    <div class="absolute inset-0 bg-darkGreen bg-opacity-80"></div>
+    <main class="relative py-[2rem] sm:py-[3rem] md:py-[4rem] lg:py-[6rem] xl:py-[8rem] text-white text-center">
+      <div class="mx-auto p-4 lg:w-[90%] xl:w-[80%] 2xl:w-[70%]">
+        <h1 class="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">3 Steps to Success</h1>
+        <p class="mt-1 font-medium text-sm md:text-base xl:text-lg">
+          Get invited to a Fortune Holders's networking meeting and witness the power of networking in action.
+        </p>
+
+        <section class="relative py-12 bg-pritext-primaryGreen text-white text-center">
+          <div class="flex md:flex-row flex-col justify-between items-center md:space-x-8 space-y-8 md:space-y-0 mx-auto px-4 container">
+
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center md:-mt-8 w-full md:w-1/3">
+              <div class="flex items-center">
+                <div class="flex justify-center items-center bg-white rounded-full w-12 md:w-14 h-12 md:h-14 font-bold text-primaryGreen text-lg md:text-xl lg:text-2xl">
+                  1
+                </div>
+                <div class="hidden md:block bg-white ml-4 w-40 h-[2px]"></div>
+              </div>
+              <h2 class="mt-4 font-bold text-lg md:text-xl lg:text-2xl">Visit a Fortune Holders's Chapter</h2>
+              <p class="mt-2 text-sm md:text-base">and experience the power of the networking</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center w-full md:w-1/3">
+              <div class="flex items-center">
+                <div class="hidden md:block bg-white mr-4 w-40 h-[2px]"></div>
+                <div class="flex justify-center items-center bg-white rounded-full w-12 md:w-14 h-12 md:h-14 font-bold text-primaryGreen text-lg md:text-xl lg:text-2xl">
+                  2
+                </div>
+                <div class="hidden md:block bg-white ml-4 w-40 h-[2px]"></div>
+              </div>
+              <h2 class="mt-4 font-bold text-lg md:text-xl lg:text-2xl">Meet the Members</h2>
+              <p class="mt-2 text-sm md:text-base">and learn how they can help you grow your investment</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center w-full md:w-1/3">
+              <div class="flex items-center">
+                <div class="hidden md:block bg-white mr-4 w-40 h-[2px]"></div>
+                <div class="flex justify-center items-center bg-white rounded-full w-12 md:w-14 h-12 md:h-14 font-bold text-primaryGreen text-lg md:text-xl lg:text-2xl">
+                  3
+                </div>
+              </div>
+              <h2 class="mt-4 font-bold text-lg md:text-xl lg:text-2xl">Apply</h2>
+              <p class="mt-2 text-sm md:text-base">to become a Member of the Fortune Holders Associate</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <a href="/create" class="block bg-white hover:bg-inherit mx-auto mt-10 px-8 md:px-6 xl:px-8 py-3 border border-white rounded-xl w-fit font-semibold text-primaryGreen hover:text-white duration-500">
+        GET STARTED
+      </a>
+      <section>
+        <div class="py-12 overflow-hidden">
+          <div class="group relative flex w-full">
+            <div class="flex space-x-6 animate-scroll">
+              <div class="flex-shrink-0 bg-darkGreen shadow-lg p-6 rounded-2xl w-80 text-white text-left">
+                <p class="mb-4 font-medium text-sm md:text-base xl:text-lg">Today we own a Pvt. Ltd. Firm that has achieved Rs 1.5 Cr in business within 9 months, with 95% of it coming from Fortune Holders Associate.</p>
+                <div class="flex items-center space-x-3">
+                  <img src="/Images/testimonial 3.png" alt="Testimonial Image" class="rounded-full w-10 h-10">
+                  <div>
+                    <p class="font-bold">Bhavesh Vora</p>
+                    <p class="text-[10px] md:text-xs xl:text-sm">Engineering Solutions, India</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-shrink-0 bg-darkGreen shadow-lg p-6 rounded-2xl w-80 text-white text-left">
+                <p class="mb-4 font-medium text-sm md:text-base xl:text-lg">Fortune Holders Associate has been a fundamental networking tool for me, especially my financial growth.</p>
+                <div class="flex items-center space-x-3">
+                  <img src="/Images/testimonial 4.png" alt="Testimonial Image" class="rounded-full w-10 h-10">
+                  <div>
+                    <p class="font-bold">Rafael Lins</p>
+                    <p class="text-[10px] md:text-xs xl:text-sm">Pest Control, Brazil</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-shrink-0 bg-darkGreen shadow-lg p-6 rounded-2xl w-80 text-white text-left">
+                <p class="mb-4 font-medium text-sm md:text-base xl:text-lg">Over 86% of my clients come through referrals from Fortune Holders Members.</p>
+                <div class="flex items-center space-x-3">
+                  <img src="/Images/testimonial 5.png" alt="Testimonial Image" class="rounded-full w-10 h-10">
+                  <div>
+                    <p class="font-bold">Jennie B</p>
+                    <p class="text-[10px] md:text-xs xl:text-sm">Sales, United States</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-shrink-0 bg-darkGreen shadow-lg p-6 rounded-2xl w-80 text-white text-left">
+                <p class="mb-4 font-medium text-sm md:text-base xl:text-lg">I highly recommend Fortune Holders Associate to every person who is looking to step up their financial life.</p>
+                <div class="flex items-center space-x-3">
+                  <img src="/Images/testimonial 7.png" alt="Testimonial Image" class="rounded-full w-10 h-10">
+                  <div>
+                    <p class="font-bold">Lynne R</p>
+                    <p class="text-[10px] md:text-xs xl:text-sm">Wellness Coach, Canada</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-shrink-0 bg-darkGreen shadow-lg p-6 rounded-2xl w-80 text-white text-left">
+                <p class="mb-4 font-medium text-sm md:text-base xl:text-lg">There is no strategy that benefits so many areas in one's life than Fortune Holders Associate.</p>
+                <div class="flex items-center space-x-3">
+                  <img src="/Images/testimonial 8.png" alt="Testimonial Image" class="rounded-full w-10 h-10">
+                  <div>
+                    <p class="font-bold">Dr. Adriana Cortés</p>
+                    <p class="text-[10px] md:text-xs xl:text-sm">Health & Wellness, Colombia</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-shrink-0 bg-darkGreen shadow-lg p-6 rounded-2xl w-80 text-white text-left">
+                <p class="mb-4 font-medium text-sm md:text-base xl:text-lg">Fortune Holders Associate expanded my network and improved my financial life, credit score, and well being.</p>
+                <div class="flex items-center space-x-3">
+                  <img src="/Images/testimonial 6.png" alt="Testimonial Image" class="rounded-full w-10 h-10">
+                  <div>
+                    <p class="font-bold">Jackson T</p>
+                    <p class="text-[10px] md:text-xs xl:text-sm">Events, United Kingdom</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <p class="mx-auto p-4 xl:w-[60%] text-left md:text-center"><span class="font-bold">Disclaimer:</span> This information is based on historical Fortune Holders Member self-reported data as of August 5, 2024, and represents collective results from Fortune Holders Members worldwide over the last 12 months. Errors in self-reporting of data or in subsequent analysis are possible. Therefore, the information herein should only be viewed as representative in nature.</p>
+
+    </main>
+  </section>
+  <section id="">
+    <div class="">
+
+    </div>
+  </section>
+  <%- include("partials/_cta"); -%>
+  <section id="footer">
+    <%- include("partials/_footer"); -%>
+  </section>
+</body>
+
+</html>
