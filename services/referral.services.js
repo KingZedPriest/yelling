@@ -39,6 +39,7 @@ class ReferralService {
     }
   }
 
+  //Fetch who referred a user
   async fetchWhoReferredAUser(userEmail) {
     try {
       return await prisma.referral.findUnique({

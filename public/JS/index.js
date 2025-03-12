@@ -19,27 +19,6 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hide");
 hiddenElements.forEach((el) => observer.observe(el));
 
-//Testimonial Section
-const carousel = document.getElementById("carousel")
-const prevBtn = document.querySelector("#prevBtn")
-const nextBtn = document.querySelector("#nextBtn")
-const slideWidth = carousel.clientWidth;
-let currentIndex = 0;
-
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + 5) % 5;
-  updateCarousel();
-});
-
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % 5;
-  updateCarousel();
-});
-
-function updateCarousel() {
-  const transformValue = -currentIndex * slideWidth;
-  carousel.querySelector(".flex").style.transform = `translateX(${transformValue}px)`;
-}
 
 //Contact Us Form Submission
 const form = document.getElementById('email-form');

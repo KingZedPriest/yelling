@@ -176,7 +176,7 @@ class UserController {
       });
       res.redirect("/user/deposit");
     } catch (error) {
-      console.log("The error", error);
+
       req.flash("message", {
         error: true,
         title: "Deposit Failed",
@@ -328,7 +328,7 @@ class UserController {
     const { amount, coin } = req.body;
 
     try {
-      if (amount < 100) {
+      if (amount < 50) {
         req.flash("message", {
           info: true,
           title: "Insufficient Amount",

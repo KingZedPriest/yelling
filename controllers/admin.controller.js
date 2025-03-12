@@ -75,7 +75,7 @@ class AdminController {
         );
         if (isUserReferred) {
           const data = {
-            amount: parseFloat(amount * 0.05),
+            amount: parseFloat(amount * 0.025),
             description: "Referral Reward",
             userId: isUserReferred.referralUserId,
           };

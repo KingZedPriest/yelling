@@ -45,7 +45,7 @@
             <p class="mt-1">Payout Amount: <span class="text-darkGreen">$ <%= investment.payoutAmount %></span></p>
             <p class="mt-1">User Email: <span class="text-darkGreen"><%= investment.User.email %></span></p>
             <p class="mt-1">User Full Name: <span class="text-darkGreen"><%= investment.User.fullName %></span></p>
-            <p class="mt-1">Investment Status: <span class="text-darkGreen"><%= investment.status %></span></p>
+            <p class="mt-1">Investment Status: <span class="text-accentGreen capitalize"><%= investment.status %></span></p>
             <p class="mt-1">Started Time and Date: <span class="text-darkGreen"><%= investment.startDate.toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }) %></span></p>
             <p class="mt-1">End Time and Date: <span class="text-darkGreen"><%= investment.endDate.toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }) %></span></p>
           </div>
