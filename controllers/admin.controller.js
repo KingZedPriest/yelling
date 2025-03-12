@@ -80,6 +80,9 @@ class AdminController {
             userId: isUserReferred.referralUserId,
           };
           await earningServices.newEarning(data);
+          const user = await userServices.fetchUserById(isUserReferred.referralUserId)
+          //Notify the third party
+          new Email(user, amount).sendCommission();
         }
       }
       //Clients Notification
@@ -240,7 +243,9 @@ class AdminController {
   async renderInvestors(req, res) {
     const investors = await userServices.fetchAllUsers();
     const filteredInvestors = investors.filter(
-      (investor) => investor.email !== "admin@admin.com" && investor.email !== "developer@admin.com"
+      (investor) =>
+        investor.email !== "admin@admin.com" &&
+        investor.email !== "developer@admin.com"
     );
     res.render("adminInvestors", {
       investors: filteredInvestors,

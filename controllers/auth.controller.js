@@ -85,6 +85,8 @@ class AuthController {
         referralUserId: referrer.id,
         userEmail: email,
       });
+      //Notify the referrer
+      new Email(referrer, fullName).sendReferralEmail();
     }
 
     // Hash Password
@@ -252,13 +254,11 @@ class AuthController {
   //Handle Password
   async handleResetPassword(req, res) {
     const { id, code, password } = req.body;
-    console.log("Request Body", req.body);
     if (!id) return res.redirect("/forgot");
 
     try {
       //Get the user details
       const foundUser = await UserService.fetchUserById(id);
-      console.log("User details", foundUser);
       if (!foundUser) {
         // Throw an error if user not found
         req.flash("message", {

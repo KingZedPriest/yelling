@@ -54,7 +54,7 @@
                          "/Images/earn.svg",
                 iconAlt: transactionTypeName + " Icon",
                 textColor: "text-[#141619]",
-                description: `${transactionTypeName} via ${transactionType ==="investment" ? transaction.plan + " Plan" : transaction.coin || 'Administration'}`,
+                description: `${transactionTypeName} via ${transactionType ==="investment" ? transaction.plan + " Plan" : transaction.coin || 'Commission'}`,
                 amountColor: transactionType === "deposit" || transactionType === "earning" || transactionType === "bonus" ? "text-[#20BF55]" : "text-[#FF5964]",
                 amountSign: transactionType === "deposit" || transactionType === "earning" || transactionType === "bonus" ? "+" : "-",
                 amount: transaction.amount,

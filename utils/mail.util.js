@@ -85,6 +85,12 @@ export class Email {
   async sendBonus() {
     await this._send("bonus", "New Bonus");
   }
+  async sendCommission() {
+    await this._send("commission", "New Referral Commission");
+  }
+  async sendReferralEmail(){
+    await this._send("referralEmail", "New Referral");
+  }
   async sendSuspended() {
     await this._send("suspended", "Account Suspended");
   }
