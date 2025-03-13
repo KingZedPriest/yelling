@@ -100,12 +100,12 @@ class UserController {
         return res.redirect("/user/deposit");
       }
 
-      if (amount < 50) {
+      if (amount < 200) {
         req.flash("message", {
           info: true,
           title: "Insufficient Amount",
-          description: `Sorry, the minimum amount to deposit is $50 kindly add $${
-            50 - amount
+          description: `Sorry, the minimum amount to deposit is $200 kindly add $${
+            200 - amount
           } to the previous amount.`,
         });
         return res.redirect("/user/deposit");

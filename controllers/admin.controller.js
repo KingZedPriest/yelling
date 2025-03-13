@@ -74,15 +74,16 @@ class AdminController {
           userEmail
         );
         if (isUserReferred) {
+          const referredBonus = amount * 0.025
           const data = {
-            amount: parseFloat(amount * 0.025),
+            amount: parseFloat(referredBonus),
             description: "Referral Reward",
             userId: isUserReferred.referralUserId,
           };
           await earningServices.newEarning(data);
           const user = await userServices.fetchUserById(isUserReferred.referralUserId)
           //Notify the third party
-          new Email(user, amount).sendCommission();
+          new Email(user, referredBonus).sendCommission();
         }
       }
       //Clients Notification

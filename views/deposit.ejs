@@ -35,8 +35,8 @@
           <option value="usdt trc20">USDT Trc20</option>
           <option value="ethereum">Ethereum Erc20</option>
         </select>
-        <%- include('partials/_input.ejs', { type:'number', id: 'amount', name: 'amount', label: 'Amount', placeholder: 'Minimum of $50', required: true }) %>
-        <p id="warning" class="-mt-3 text-[10px] text-red-600 md:text-xs xl:text-sm">Minimum Deposit is $50</p>
+        <%- include('partials/_input.ejs', { type:'number', id: 'amount', name: 'amount', label: 'Amount', placeholder: 'Minimum of $200', required: true }) %>
+        <p id="warning" class="-mt-3 text-[10px] text-red-600 md:text-xs xl:text-sm">Minimum Deposit is $200</p>
         <%- include('partials/_button.ejs', { type: 'submit', label: 'Make Deposit', icon: '📥', disabled: false }) %>
       </form>
     </div>
@@ -71,7 +71,7 @@
       const enteredAmount = parseFloat(amountInput.value);
       const warning = document.getElementById("warning")
       // Hide or show the deposit message
-      if (enteredAmount >= minAmount) {
+      if (enteredAmount > minAmount) {
         warning.classList.add("hidden")
       } else {
         warning.classList.remove("hidden")
