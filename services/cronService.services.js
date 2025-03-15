@@ -33,7 +33,12 @@ export class CronJobService {
         Math.floor((now - startDate) / (1000 * 60 * 60 * 24)) + 1;
 
       // Last day check: Ensure total payoutAmount is exactly the correct formula
-      const isLastDay = daysElapsed >= 7 || now >= endDate;
+      const plans = {
+        standard: { min: 200, max: 50000, dailyPercent: 5, duration: 5 },
+        executive: { min: 10000, max: 100000, dailyPercent: 7, duration: 7 },
+      };
+
+      const isLastDay = daysElapsed >= plans[investment.plan].duration || now >= endDate;
 
       if (isLastDay) {
         updatedPayout = investment.amount + (investment.amount * (investment.dailyPercent / 100) * 7);
