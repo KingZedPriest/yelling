@@ -351,7 +351,9 @@ class UserController {
 
       //Check if the user has a wallet address
       const userWallet = await userWalletServices.fetchUserWallets(userId);
-      if (!userWallet || !userWallet.getWithdrawalWallet(coin)) {
+      const withdrawalCoin = getWithdrawalWallet(coin)
+
+      if (!userWallet || userWallet[withdrawalCoin] === null) {
         req.flash("message", {
           error: true,
           title: "Withdrawal Failed",
@@ -361,9 +363,9 @@ class UserController {
       }
 
       const data = {
-        amount: parseFloat(amount),
+        amount: parseFloat(amount), 
         coin,
-        walletAddress: userWallet.getWithdrawalWallet(coin),
+        walletAddress: userWallet[withdrawalCoin],
         userId,
       };
 
@@ -390,6 +392,7 @@ class UserController {
         title: "Withdrawal Failed",
         description: `We were unable to process your withdrawal request at this time. Please review the details and try again later.`,
       });
+      console.log("Withdrawal  Error", error)
       res.redirect("/user/withdraw");
     }
   }
