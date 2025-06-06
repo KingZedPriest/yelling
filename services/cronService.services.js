@@ -41,7 +41,7 @@ export class CronJobService {
       const isLastDay = daysElapsed >= plans[investment.plan].duration || now >= endDate;
 
       if (isLastDay) {
-        updatedPayout = investment.amount + (investment.amount * (investment.dailyPercent / 100) * 7);
+        updatedPayout = investment.amount + (investment.amount * (investment.dailyPercent / 100) * plans[investment.plan].duration);
       }
 
       // Update the database
