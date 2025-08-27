@@ -9,6 +9,11 @@ const PORT = process.env.PORT || 3000;
 // Ensure Prisma connects to MongoDB
 async function startServer() {
   try {
+    process.on("warning", (warning) => {
+      if (warning.name === "DeprecationWarning")
+        console.error(warning.stack || warning);
+    });
+
     await prisma.$connect();
     console.log("Database connected successfully");
     app.listen(PORT, () =>

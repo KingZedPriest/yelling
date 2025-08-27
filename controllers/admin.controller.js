@@ -74,14 +74,16 @@ class AdminController {
           userEmail
         );
         if (isUserReferred) {
-          const referredBonus = amount * 0.025
+          const referredBonus = amount * 0.025;
           const data = {
             amount: parseFloat(referredBonus),
             description: "Referral Reward",
             userId: isUserReferred.referralUserId,
           };
           await earningServices.newEarning(data);
-          const user = await userServices.fetchUserById(isUserReferred.referralUserId)
+          const user = await userServices.fetchUserById(
+            isUserReferred.referralUserId
+          );
           //Notify the third party
           new Email(user, referredBonus).sendCommission();
         }
@@ -164,6 +166,15 @@ class AdminController {
   async handleBonus(req, res) {
     const { userEmail, amount } = req.body;
     const user = await userServices.fetchUserByEmail(userEmail.toLowerCase());
+
+    if (!user) {
+      req.flash("message", {
+        error: true,
+        title: "Bonus Failed",
+        description: `Couldn't send bonus, kindly try again later.`,
+      });
+      return res.redirect("/admin/bonus");
+    }
 
     const data = {
       amount: parseFloat(amount),
