@@ -30,6 +30,7 @@ router.post("/penalty", [ authenticate, authorize("admin") ], adminController.ha
 
 //Investment
 router.get("/investment", [ authenticate, authorize("admin") ], adminController.renderInvestment);
+router.patch("/investment", [ authenticate, authorize("admin") ], adminController.handleInvestment);
 
 //Users (Clients)
 router.get("/investors", [ authenticate, authorize("admin") ], adminController.renderInvestors);

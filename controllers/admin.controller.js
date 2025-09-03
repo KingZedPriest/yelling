@@ -171,7 +171,7 @@ class AdminController {
       req.flash("message", {
         error: true,
         title: "Bonus Failed",
-        description: `Couldn't send bonus, kindly try again later.`,
+        description: `User with the entered email ${userEmail} not found.`,
       });
       return res.redirect("/admin/bonus");
     }
@@ -217,6 +217,15 @@ class AdminController {
     const { userEmail, amount } = req.body;
     const user = await userServices.fetchUserByEmail(userEmail.toLowerCase());
 
+    if (!user) {
+      req.flash("message", {
+        error: true,
+        title: "Penalty Failed",
+        description: `User with the entered email ${userEmail} not found.`,
+      });
+      res.redirect("/admin/penalty");
+    }
+
     const data = {
       amount: parseFloat(amount),
       userId: user.id,
@@ -249,6 +258,52 @@ class AdminController {
       currentPage: req.url,
       investmentLength: investments.length,
     });
+  }
+
+  //Handle Investment
+  async handleInvestment(req, res) {
+    const { action, id } = req.body;
+    const investment = investmentServices.fetchInvestment(id);
+
+    if (!investment) {
+      req.flash("message", {
+        error: true,
+        title: "Action Failed",
+        description: `Investment not found, kindly try again later.`,
+      });
+      res.redirect("/admin/investment");
+    }
+
+    try {
+      if (action === "cancel") {
+        await investmentServices.updateStatus(id, "cancelled");
+        req.flash("message", {
+          success: true,
+          title: "Cancelled Successfully",
+          description: `The investment was cancelled successfully.`,
+        });
+        res.redirect("/admin/investment");
+        return;
+      }
+
+      if (action === "delete") {
+        await investmentServices.deleteInvestment(id);
+        req.flash("message", {
+          success: true,
+          title: "Deleted Successfully",
+          description: `The investment was deleted successfully.`,
+        });
+        res.redirect("/admin/investment");
+        return;
+      }
+    } catch (error) {
+      req.flash("message", {
+        error: true,
+        title: "Action Failed",
+        description: `Couldn't complete the ${action} action, kindly try again later.`,
+      });
+      res.redirect("/admin/investment");
+    }
   }
 
   // Render Investors

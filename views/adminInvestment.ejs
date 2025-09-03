@@ -29,25 +29,36 @@
                 <img src="/Images/investment.svg" alt="Icon">
               </div>
               <div>
-                  <p class="font-medium text-left">Investment</p>
-                  <p class="text-[10px] text-gray-600 md:text-xs xl:text-sm"><%=investment.User.email %></p>
+                <p class="font-medium text-left">Investment</p>
+                <p class="text-[10px] text-gray-600 md:text-xs xl:text-sm"><%=investment.User.email %></p>
               </div>
             </div>
             <div class="flex items-center gap-x-1">
               <p class="font-medium text-purple-600 text-sm md:text-base xl:text-lg">$ <%= investment.amount %></p>
-              <i id="<%= index %>-icon" class="ph-fill text-base md:text-lg xl:text-xl ph-caret-down"></i>
+              <i id="<%= index %>-icon" class="text-base md:text-lg xl:text-xl ph-caret-down ph-fill"></i>
             </div>
           </button>
           <div id="<%= index %>" class="hidden bg-offWhite p-4">
-            <p class="mt-1">Amount: <span class="text-darkGreen"> $<%= investment.amount %></span></p>
-            <p class="mt-1">Plan: <span class="text-darkGreen capitalize"><%= investment.plan %> Plan</span></p>
-            <p class="mt-1">Daily Percent: <span class="text-darkGreen"> <%= investment.dailyPercent %>%</span></p>
-            <p class="mt-1">Payout Amount: <span class="text-darkGreen">$ <%= investment.payoutAmount %></span></p>
-            <p class="mt-1">User Email: <span class="text-darkGreen"><%= investment.User.email %></span></p>
-            <p class="mt-1">User Full Name: <span class="text-darkGreen"><%= investment.User.fullName %></span></p>
-            <p class="mt-1">Investment Status: <span class="text-accentGreen capitalize"><%= investment.status %></span></p>
-            <p class="mt-1">Started Time and Date: <span class="text-darkGreen"><%= investment.startDate.toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }) %></span></p>
-            <p class="mt-1">End Time and Date: <span class="text-darkGreen"><%= investment.endDate.toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }) %></span></p>
+            <p class="mt-1">Amount: <span class="font-semibold text-darkGreen"> $<%= investment.amount %></span></p>
+            <p class="mt-1">Plan: <span class="font-semibold text-darkGreen capitalize"><%= investment.plan %> Plan</span></p>
+            <p class="mt-1">Daily Percent: <span class="font-semibold text-darkGreen"> <%= investment.dailyPercent %>%</span></p>
+            <p class="mt-1">Payout Amount: <span class="font-semibold text-darkGreen">$ <%= investment.payoutAmount %></span></p>
+            <p class="mt-1">User Email: <span class="font-semibold text-darkGreen"><%= investment.User.email %></span></p>
+            <p class="mt-1">User Full Name: <span class="font-semibold text-darkGreen"><%= investment.User.fullName %></span></p>
+            <p class="mt-1">Investment Status: <span class="font-semibold text-accentGreen capitalize"><%= investment.status %></span></p>
+            <p class="mt-1">Started Time and Date: <span class="font-semibold text-darkGreen"><%= investment.startDate.toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }) %></span></p>
+            <p class="mt-1">End Time and Date: <span class="font-semibold text-darkGreen"><%= investment.endDate.toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }) %></span></p>
+            <form action="/admin/investment?_method=patch" method="post" class="flex items-center gap-x-5 mt-4">
+              <input type="hidden" name="id" value="<%= investment.id %>">
+              <div class="flex items-center gap-x-1 text-blue-600 hover:underline cursor-pointer">
+                <input class="capitalize" type="submit" value="cancel" name="action">
+                <i class="text-xl ph ph-prohibit"></i>
+              </div>
+              <div class="flex items-center gap-x-1 text-red-600 hover:underline cursor-pointer">
+                <input class="capitalize" type="submit" value="delete" name="action">
+                <i class="text-xl ph ph-trash"></i>
+              </div>
+            </form>
           </div>
         </div>
         <%})%>

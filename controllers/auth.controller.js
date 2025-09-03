@@ -9,7 +9,7 @@ import UserProfileServices from "../services/userProfile.services.js";
 //Utils
 import { Email } from "../utils/mail.util.js";
 import { sendEmail } from "../utils/adminMail.util.js";
-import ALLOWED_EMAIL_DOMAINS from "../utils/emailList.utils.js"
+import ALLOWED_EMAIL_DOMAINS from "../utils/emailList.utils.js";
 
 class AuthController {
   //Render Registration Page
@@ -20,16 +20,22 @@ class AuthController {
 
   //Register User
   async registration(req, res) {
-
-    const { email, fullName, username, password, role, referral, country } = req.body;
+    const { email, fullName, username, password, role, referral, country } =
+      req.body;
 
     // Check if all required fields are filled
-    if (!email || !fullName || !username || !password || !country || country === "") {
+    if (
+      !email ||
+      !fullName ||
+      !username ||
+      !password ||
+      !country ||
+      country === ""
+    ) {
       req.flash("message", {
         error: true,
         title: "Incomplete Field",
-        description:
-          "All fields are required",
+        description: "All fields are required",
       });
       return res.redirect("/create");
     }
@@ -59,7 +65,9 @@ class AuthController {
     }
 
     // Check if User Already Exists
-    const userAlreadyExists = await UserService.fetchUserByEmail(email.toLowerCase());
+    const userAlreadyExists = await UserService.fetchUserByEmail(
+      email.toLowerCase()
+    );
     if (userAlreadyExists) {
       req.flash("message", {
         error: true,
@@ -101,10 +109,19 @@ class AuthController {
       role: role || "user",
     });
 
+    if (!user) {
+      req.flash("message", {
+        error: true,
+        title: "Registration Failed",
+        description: "Couldn't successfully complete account creation.",
+      });
+      return res.redirect("/create");
+    }
+
     await UserProfileServices.newUserProfile({
       userId: user.id,
-      country
-    })
+      country,
+    });
 
     // Generate JWT Token
     const token = jwt.sign(
@@ -115,7 +132,10 @@ class AuthController {
 
     // Notifications
     new Email(user).sendWelcome();
-    sendEmail("New User Notification", `A new user signed up: ${user.fullName} (${user.email}).` );
+    sendEmail(
+      "New User Notification",
+      `A new user signed up: ${user.fullName} (${user.email}).`
+    );
 
     // Respond
     res
@@ -145,8 +165,7 @@ class AuthController {
         description:
           "Please check your entered email and password, and try again.",
       });
-      res.redirect("/login");
-      return;
+      return res.redirect("/login");
     }
 
     // comparing passwords

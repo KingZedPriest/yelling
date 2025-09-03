@@ -84,7 +84,7 @@ class InvestmentService {
   }
 
   // Delete an investment
-  async deleteDeposit(id) {
+  async deleteInvestment(id) {
     try {
       return await prisma.investment.delete({
         where: {
