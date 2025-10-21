@@ -1,17 +1,12 @@
-import nodemailer from "nodemailer";
 import ejs from "ejs";
 import { convert } from "html-to-text";
 import path from "path";
 import { fileURLToPath } from "url";
+import { sendEmail } from "./sendEmail.js";
 
-// Get the current file path and directory
+// Get file path and directory
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-//Constants
-const email = process.env.EMAIL;
-const EmailPassword = process.env.EMAIL_PASSWORD;
-const From = process.env.FROM;
 
 export class Email {
   constructor(user, amount, code) {
@@ -21,23 +16,8 @@ export class Email {
     this.code = code;
   }
 
-  async _createTransporter() {
-    return nodemailer.createTransport({
-      host: "smtp.zoho.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: email,
-        pass: EmailPassword,
-      },
-    });
-  }
-
   async _send(template, subject) {
-    function getCurrentYear() {
-      const currentDate = new Date();
-      return currentDate.getFullYear();
-    }
+    const getCurrentYear = () => new Date().getFullYear();
 
     const html = await ejs.renderFile(
       `${__dirname}/../views/emails/${template}.ejs`,
@@ -46,19 +26,20 @@ export class Email {
         amount: this.amount,
         code: this.code,
         year: getCurrentYear(),
-      },
+      }
     );
 
-    const mailOptions = {
-      from: From, 
-      to: this.to,
-      subject: subject,
-      html,
-      text: convert(html),
-    };
+    // still support plain text fallback
+    const text = convert(html);
 
-    const transporter = await this._createTransporter();
-    transporter.sendMail(mailOptions);
+    // Send email
+    await sendEmail({
+      to: this.to,
+      subject,
+      html,
+    });
+
+    console.log(`📧 Email sent to ${this.to} with subject "${subject}"`);
   }
 
   async sendWelcome() {
@@ -88,7 +69,7 @@ export class Email {
   async sendCommission() {
     await this._send("commission", "New Referral Commission");
   }
-  async sendReferralEmail(){
+  async sendReferralEmail() {
     await this._send("referralEmail", "New Referral");
   }
   async sendSuspended() {
